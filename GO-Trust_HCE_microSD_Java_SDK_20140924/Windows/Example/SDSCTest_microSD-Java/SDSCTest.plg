@@ -1,0 +1,29 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: SDSCTest - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo"Debug/SDSCTest.res" /d "_DEBUG" /d "_AFXDLL" "D:\svn_root\library\ns\trunk\Windows\GO-Trust\Example\SDSCTest_JavaCard\SDSCTest.rc"" 
+Creating temporary file "C:\Users\FENFEN\AppData\Local\Temp\RSPD50C.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/SDSCTest.pdb" /debug /machine:I386 /nodefaultlib:"libcmtd.lib" /out:"Debug/SDSCTest.exe" /pdbtype:sept 
+".\Debug\SDSCTest.obj"
+".\Debug\SDSCTestDlg.obj"
+".\Debug\StdAfx.obj"
+".\Debug\SDSCTest.res"
+]
+Creating command line "link.exe @C:\Users\FENFEN\AppData\Local\Temp\RSPD50C.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Linking...
+
+
+
+<h3>Results</h3>
+SDSCTest.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

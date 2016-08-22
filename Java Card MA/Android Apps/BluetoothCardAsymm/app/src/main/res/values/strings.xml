@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">BluetoothCardAsymm</string>
+    <string name="read_button_text">Read bluetooth address</string>
+    <string name="scanning_text">Scanning...</string>
+    <string name="scan_button_text">Scan</string>
+    <string name="connect_button_text">Connect</string>
+</resources>

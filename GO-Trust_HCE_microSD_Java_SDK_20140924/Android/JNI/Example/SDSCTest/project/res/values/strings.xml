@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<resources> 
+  <string name="menu">Test Item</string> 
+  <string name="app_name">SESDTest</string>
+  <string name="list_opt_create_io_file" >Create I/O File</string>
+  <string name="list_opt_list_dev">List Device</string>
+  <string name="list_opt_connect_dev">Connect Device</string><string name="list_opt_get_dev_info">Get Device Info</string>
+  <string name="list_opt_apdu_test">APDU Test</string><string name="list_opt_disconnect_dev">Disconnect Device</string>
+  <string name="result">Test Result</string>
+  
+  
+</resources> 
+

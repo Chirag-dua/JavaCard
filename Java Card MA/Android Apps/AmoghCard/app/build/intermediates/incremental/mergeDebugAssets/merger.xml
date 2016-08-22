@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="23.2.0"><source path="/home/rishabh/Projects_Major_Final/AmoghCard/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.0/assets"/></dataSet><dataSet config="main"><source path="/home/rishabh/Projects_Major_Final/AmoghCard/app/src/main/assets"/></dataSet><dataSet config="debug"><source path="/home/rishabh/Projects_Major_Final/AmoghCard/app/src/debug/assets"/></dataSet></merger>

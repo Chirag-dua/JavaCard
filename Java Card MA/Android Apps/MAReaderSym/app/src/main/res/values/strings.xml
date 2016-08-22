@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MA ReaderSym</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="ioFile">Create I/O File</string>
+</resources>

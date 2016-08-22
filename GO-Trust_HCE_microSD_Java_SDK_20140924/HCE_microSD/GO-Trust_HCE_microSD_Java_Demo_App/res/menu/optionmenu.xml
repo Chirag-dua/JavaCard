@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/Homebar"
+        android:orderInCategory="1"
+        android:icon="@drawable/ic_menu_moreoverflow_normal_holo_light"
+        android:title="Options"
+        android:showAsAction="always">
+        <menu>
+            <item
+                android:id="@+id/menu_auto_act"
+                android:orderInCategory="2"
+                android:checkable="true"
+                android:checked="true"
+                android:showAsAction="ifRoom"
+                android:title="Auto Activate microSD"/>
+            
+            <item
+                android:id="@+id/menu_enable_log"
+                android:orderInCategory="2"
+                android:checkable="true"
+                android:checked="true"
+                android:showAsAction="ifRoom"
+                android:title="Enable Log"/>
+            
+           
+        </menu>
+    </item>
+
+</menu>

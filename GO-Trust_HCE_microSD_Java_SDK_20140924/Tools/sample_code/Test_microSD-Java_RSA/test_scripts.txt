@@ -1,0 +1,15 @@
+RESET
+// Select Applet 'TestRSA'
+00 A4 04 00 06 F00000000401
+
+// Generate Key Pair
+00 00 00 00 00
+
+// Test RSA encryption (P1 specifies the length of data to test)
+00 01 10 00 00
+
+// Test RSA encryption & decryption(P1 specifies the length of data to test)
+00 02 10 00 00
+
+// Another example of 'Generate Key Pair'
+00 03 00 00 00

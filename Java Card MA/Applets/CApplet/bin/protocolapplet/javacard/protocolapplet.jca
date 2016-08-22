@@ -1,0 +1,901 @@
+// converted by version 1.3
+// on Mon May 09 13:18:22 IST 2016
+
+.package protocolapplet {
+	.aid 0x1:0x2:0x3:0x4:0x5:0x6:0x7:0x8:0x9:0x8;
+	.version 1.0;
+
+	.imports {
+		0xA0:0x0:0x0:0x0:0x62:0x1:0x1 1.3;		//javacard/framework
+		0xA0:0x0:0x0:0x0:0x62:0x2:0x1 1.3;		//javacardx/crypto
+		0xA0:0x0:0x0:0x0:0x62:0x1:0x2 1.3;		//javacard/security
+		0xA0:0x0:0x0:0x0:0x62:0x0:0x1 1.0;		//java/lang
+	}
+
+	.applet {
+		0x1:0x2:0x3:0x4:0x5:0x6:0x7:0x8:0x9:0x8:0x2 ProtocolApplet;
+	}
+
+	.constantPool {
+		// 0
+		instanceFieldRef 2.14 ProtocolApplet/rnd;
+		// 1
+		instanceFieldRef 1.1 ProtocolApplet/rsa_cipher;
+		// 2
+		instanceFieldRef 1.1 ProtocolApplet/aes_cipher;
+		// 3
+		instanceFieldRef 2.16 ProtocolApplet/rsaKeys;
+		// 4
+		instanceFieldRef 2.9 ProtocolApplet/pkey_server;
+		// 5
+		instanceFieldRef 2.9 ProtocolApplet/readerKey;
+		// 6
+		instanceFieldRef byte[] ProtocolApplet/aeskey;
+		// 7
+		instanceFieldRef 2.20 ProtocolApplet/sessionKey;
+		// 8
+		instanceFieldRef byte[] ProtocolApplet/id;
+		// 9
+		instanceFieldRef byte[] ProtocolApplet/signature;
+		// 10
+		instanceFieldRef byte[] ProtocolApplet/temp;
+		// 11
+		instanceFieldRef byte[] ProtocolApplet/forId;
+		// 12
+		instanceFieldRef byte[] ProtocolApplet/nc;
+		// 13
+		instanceFieldRef byte[] ProtocolApplet/loc;
+		// 14
+		instanceFieldRef byte[] ProtocolApplet/nr;
+		// 15
+		staticMethodRef 2.13.0(BSZ)Ljavacard/security/Key;;		// javacard/security/KeyBuilder.buildKey(BSZ)Ljavacard/security/Key;
+			.descriptor	Ljavacard/security/Key;	2.0;
+
+		// 16
+		classRef 2.20;		// javacard/security/AESKey
+		// 17
+		classRef 2.9;		// javacard/security/RSAPublicKey
+		// 18
+		virtualMethodRef 0.3.1()V;		// register()V
+		// 19
+		classRef ProtocolApplet;
+		// 20
+		staticMethodRef ProtocolApplet/<init>()V;
+		// 21
+		classRef 2.12;		// javacard/security/CryptoException
+		// 22
+		virtualMethodRef 0.10.1()[B;		// getBuffer()[B
+		// 23
+		virtualMethodRef 0.3.3()Z;		// selectingApplet()Z
+		// 24
+		staticMethodRef 0.7.1(S)V;		// javacard/framework/ISOException.throwIt(S)V
+		// 25
+		virtualMethodRef 0.10.6()S;		// setIncomingAndReceive()S
+		// 26
+		classRef 2.8;		// javacard/security/RSAPrivateKey
+		// 27
+		staticMethodRef 0.16.1([BS[BSS)S;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+		// 28
+		virtualMethodRef 0.10.8(SS)V;		// setOutgoingAndSend(SS)V
+		// 29
+		virtualMethodRef 2.16.3()Ljavacard/security/PublicKey;;		// getPublic()Ljavacard/security/PublicKey;
+			.descriptor	Ljavacard/security/PublicKey;	2.3;
+
+		// 30
+		classRef 2.16;		// javacard/security/KeyPair
+		// 31
+		staticMethodRef 2.15.0(BZ)Ljavacard/security/Signature;;		// javacard/security/Signature.getInstance(BZ)Ljavacard/security/Signature;
+			.descriptor	Ljavacard/security/Signature;	2.15;
+
+		// 32
+		virtualMethodRef 2.15.3(Ljavacard/security/Key;B)V;		// init(Ljavacard/security/Key;B)V
+			.descriptor	Ljavacard/security/Key;	2.0;
+
+		// 33
+		staticMethodRef 0.8.13(SB)[B;		// javacard/framework/JCSystem.makeTransientByteArray(SB)[B
+		// 34
+		staticMethodRef 2.16.1(Ljavacard/security/PublicKey;Ljavacard/security/PrivateKey;)V;		// javacard/security/KeyPair.<init>(Ljavacard/security/PublicKey;Ljavacard/security/PrivateKey;)V
+			.descriptor	Ljavacard/security/PublicKey;	2.3;
+			.descriptor	Ljavacard/security/PrivateKey;	2.2;
+
+		// 35
+		virtualMethodRef 2.15.6([BSS)V;		// update([BSS)V
+		// 36
+		virtualMethodRef 2.15.7([BSS[BSS)Z;		// verify([BSS[BSS)Z
+		// 37
+		staticMethodRef 1.1.0(BZ)Ljavacardx/crypto/Cipher;;		// javacardx/crypto/Cipher.getInstance(BZ)Ljavacardx/crypto/Cipher;
+			.descriptor	Ljavacardx/crypto/Cipher;	1.1;
+
+		// 38
+		virtualMethodRef 2.16.1()V;		// genKeyPair()V
+		// 39
+		virtualMethodRef 2.14.1([BSS)V;		// generateData([BSS)V
+		// 40
+		virtualMethodRef 1.1.3(Ljavacard/security/Key;B)V;		// init(Ljavacard/security/Key;B)V
+			.descriptor	Ljavacard/security/Key;	2.0;
+
+		// 41
+		virtualMethodRef 1.1.1([BSS[BS)S;		// doFinal([BSS[BS)S
+		// 42
+		staticMethodRef 2.14.0(B)Ljavacard/security/RandomData;;		// javacard/security/RandomData.getInstance(B)Ljavacard/security/RandomData;
+			.descriptor	Ljavacard/security/RandomData;	2.14;
+
+		// 43
+		virtualMethodRef 2.16.2()Ljavacard/security/PrivateKey;;		// getPrivate()Ljavacard/security/PrivateKey;
+			.descriptor	Ljavacard/security/PrivateKey;	2.2;
+
+		// 44
+		staticMethodRef 0.16.0([BS[BSS)B;		// javacard/framework/Util.arrayCompare([BS[BSS)B
+		// 45
+		staticMethodRef 0.3.0()V;		// javacard/framework/Applet.<init>()V
+	}
+
+	.class public ProtocolApplet 0 extends 0.3 {		// extends javacard/framework/Applet
+
+		.fields {
+			public 1.1 rsa_cipher 0;		// Ljavacardx/crypto/Cipher;
+			public 1.1 aes_cipher 1;		// Ljavacardx/crypto/Cipher;
+			private 2.9 pkey_server 2;		// Ljavacard/security/RSAPublicKey;
+			private 2.16 rsaKeys 3;		// Ljavacard/security/KeyPair;
+			private byte[] id 4;		// [B
+			private byte[] loc 5;		// [B
+			private byte[] sloc 6;		// [B
+			private byte[] signature 7;		// [B
+			private byte[] temp 8;		// [B
+			private final 2.14 rnd 9;		// Ljavacard/security/RandomData;
+			private byte[] nc 10;		// [B
+			private byte[] nr 11;		// [B
+			private 2.9 readerKey 12;		// Ljavacard/security/RSAPublicKey;
+			private byte[] forId 13;		// [B
+			private 2.20 sessionKey 14;		// Ljavacard/security/AESKey;
+			private byte[] aeskey 15;		// [B
+			public static final byte SET_ID = -80;		// B
+			public static final byte GET_ID = -79;		// B
+			public static final byte SET_KEY = -78;		// B
+			public static final byte GET_MODULUS_ID = -77;		// B
+			public static final byte SET_SIG = -76;		// B
+			public static final byte GET_SIG = -75;		// B
+			public static final byte TEST_VERIFY = -74;		// B
+			public static final byte GET_MODULUS = -73;		// B
+			public static final byte GET_FOR_SIG = -64;		// B
+			public static final byte VERIFY_KEYID = -63;		// B
+			public static final byte GET_DATA = -62;		// B
+			public static final byte SEND_DATA = -61;		// B
+			public static final byte FINAL_CONF = -60;		// B
+			public static final byte GET_AES_KEY = -48;		// B
+			public static final byte SET_LOC_KEY = -59;		// B
+			public static final byte SET_LOC = -58;		// B
+			public static final byte GET_SLOC = -57;		// B
+		}
+
+		.publicMethodTable 7 {
+			equals(Ljava/lang/Object;)Z;
+			register()V;
+			register([BSB)V;
+			selectingApplet()Z;
+			deselect()V;
+			getShareableInterfaceObject(Ljavacard/framework/AID;B)Ljavacard/framework/Shareable;;
+			select()Z;
+			process(Ljavacard/framework/APDU;)V;
+		}
+
+		.packageMethodTable 0 {
+		}
+
+		.method protected <init>()V 0 {
+			.stack 5;
+			.locals 2;
+
+				L0:	aload_0;
+					invokespecial 45;		// javacard/framework/Applet.<init>()V
+					aload_0;
+					sconst_2;
+					invokestatic 42;		// javacard/security/RandomData.getInstance(B)Ljavacard/security/RandomData;
+					putfield_a 0;		// reference protocolapplet/ProtocolApplet.rnd
+					aload_0;
+					bspush 10;
+					sconst_0;
+					invokestatic 37;		// javacardx/crypto/Cipher.getInstance(BZ)Ljavacardx/crypto/Cipher;
+					putfield_a 1;		// reference protocolapplet/ProtocolApplet.rsa_cipher
+					aload_0;
+					bspush 13;
+					sconst_0;
+					invokestatic 37;		// javacardx/crypto/Cipher.getInstance(BZ)Ljavacardx/crypto/Cipher;
+					putfield_a 2;		// reference protocolapplet/ProtocolApplet.aes_cipher
+					sconst_4;
+					sspush 1024;
+					sconst_0;
+					invokestatic 15;		// javacard/security/KeyBuilder.buildKey(BSZ)Ljavacard/security/Key;
+					checkcast 0 17;		// T_CLASSORINTERFACE javacard/security/RSAPublicKey
+					astore_1;
+					sconst_5;
+					sspush 1024;
+					sconst_0;
+					invokestatic 15;		// javacard/security/KeyBuilder.buildKey(BSZ)Ljavacard/security/Key;
+					checkcast 0 26;		// T_CLASSORINTERFACE javacard/security/RSAPrivateKey
+					astore_2;
+					aload_0;
+					new 30;		// javacard/security/KeyPair
+					dup;
+					aload_1;
+					aload_2;
+					invokespecial 34;		// javacard/security/KeyPair.<init>(Ljavacard/security/PublicKey;Ljavacard/security/PrivateKey;)V
+					putfield_a 3;		// reference protocolapplet/ProtocolApplet.rsaKeys
+					getfield_a_this 3;		// reference protocolapplet/ProtocolApplet.rsaKeys
+					invokevirtual 38;		// genKeyPair()V
+					aload_0;
+					sconst_4;
+					sspush 1024;
+					sconst_0;
+					invokestatic 15;		// javacard/security/KeyBuilder.buildKey(BSZ)Ljavacard/security/Key;
+					checkcast 0 17;		// T_CLASSORINTERFACE javacard/security/RSAPublicKey
+					putfield_a 4;		// reference protocolapplet/ProtocolApplet.pkey_server
+					getfield_a_this 4;		// reference protocolapplet/ProtocolApplet.pkey_server
+					sconst_3;
+					newarray 11;
+					dup;
+					sconst_0;
+					sconst_1;
+					bastore;
+					dup;
+					sconst_2;
+					sconst_1;
+					bastore;
+					sconst_0;
+					sconst_3;
+					invokeinterface 4 17 6;		// javacard/security/RSAPublicKey
+					aload_0;
+					sconst_4;
+					sspush 1024;
+					sconst_0;
+					invokestatic 15;		// javacard/security/KeyBuilder.buildKey(BSZ)Ljavacard/security/Key;
+					checkcast 0 17;		// T_CLASSORINTERFACE javacard/security/RSAPublicKey
+					putfield_a 5;		// reference protocolapplet/ProtocolApplet.readerKey
+					getfield_a_this 5;		// reference protocolapplet/ProtocolApplet.readerKey
+					sconst_3;
+					newarray 11;
+					dup;
+					sconst_0;
+					sconst_1;
+					bastore;
+					dup;
+					sconst_2;
+					sconst_1;
+					bastore;
+					sconst_0;
+					sconst_3;
+					invokeinterface 4 17 6;		// javacard/security/RSAPublicKey
+					aload_0;
+					bspush 16;
+					newarray 11;
+					dup;
+					sconst_1;
+					sconst_1;
+					bastore;
+					dup;
+					sconst_2;
+					sconst_2;
+					bastore;
+					dup;
+					sconst_3;
+					sconst_3;
+					bastore;
+					dup;
+					sconst_4;
+					sconst_4;
+					bastore;
+					dup;
+					sconst_5;
+					sconst_5;
+					bastore;
+					dup;
+					bspush 6;
+					bspush 6;
+					bastore;
+					dup;
+					bspush 7;
+					bspush 7;
+					bastore;
+					dup;
+					bspush 8;
+					bspush 8;
+					bastore;
+					dup;
+					bspush 9;
+					bspush 9;
+					bastore;
+					dup;
+					bspush 10;
+					bspush 10;
+					bastore;
+					dup;
+					bspush 11;
+					bspush 11;
+					bastore;
+					dup;
+					bspush 12;
+					bspush 12;
+					bastore;
+					dup;
+					bspush 13;
+					bspush 13;
+					bastore;
+					dup;
+					bspush 14;
+					bspush 14;
+					bastore;
+					dup;
+					bspush 15;
+					bspush 15;
+					bastore;
+					putfield_a 6;		// reference protocolapplet/ProtocolApplet.aeskey
+					aload_0;
+					bspush 13;
+					sspush 128;
+					sconst_0;
+					invokestatic 15;		// javacard/security/KeyBuilder.buildKey(BSZ)Ljavacard/security/Key;
+					checkcast 0 16;		// T_CLASSORINTERFACE javacard/security/AESKey
+					putfield_a 7;		// reference protocolapplet/ProtocolApplet.sessionKey
+					aload_0;
+					invokevirtual 18;		// register()V
+					return;
+		}
+
+		.method public static install([BSB)V 1 {
+			.stack 1;
+			.locals 0;
+
+				L0:	new 19;		// protocolapplet/ProtocolApplet
+					invokespecial 20;		// protocolapplet/ProtocolApplet.<init>()V
+					return;
+		}
+
+		.method public process(Ljavacard/framework/APDU;)V 7 {
+			.stack 7;
+			.locals 7;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	aload_1;
+					invokevirtual 22;		// getBuffer()[B
+					astore 6;
+					aload_0;
+					invokevirtual 23;		// selectingApplet()Z
+					ifeq L2;
+				L1:	return;
+				L2:	aload 6;
+					sconst_0;
+					baload;
+					bspush -96;
+					if_scmpeq L4;
+				L3:	sspush 28160;
+					invokestatic 24;		// javacard/framework/ISOException.throwIt(S)V
+				L4:	aload 6;
+					sconst_1;
+					baload;
+					stableswitch L41 -80 -48 L5 L6 L7 L18 L9 L12 L13 L8 L41 L41 L41 L41 L41 L41 L41 L41 L19 L20 L28 L26 L35 L41 L40 L27 L41 L41 L41 L41 L41 L41 L41 L41 L39;
+				L5:	aload_1;
+					invokevirtual 25;		// setIncomingAndReceive()S
+					pop;
+					sspush 255;
+					aload 6;
+					sconst_4;
+					baload;
+					sand;
+					sstore_2;
+					aload_0;
+					sload_2;
+					newarray 11;
+					putfield_a 8;		// reference protocolapplet/ProtocolApplet.id
+					aload 6;
+					sconst_5;
+					getfield_a_this 8;		// reference protocolapplet/ProtocolApplet.id
+					sconst_0;
+					sload_2;
+					invokestatic 27;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					goto_w L42;
+				L6:	getfield_a_this 8;		// reference protocolapplet/ProtocolApplet.id
+					sconst_0;
+					aload 6;
+					sconst_0;
+					getfield_a_this 8;		// reference protocolapplet/ProtocolApplet.id
+					arraylength;
+					invokestatic 27;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					aload_1;
+					sconst_0;
+					getfield_a_this 8;		// reference protocolapplet/ProtocolApplet.id
+					arraylength;
+					invokevirtual 28;		// setOutgoingAndSend(SS)V
+					goto_w L42;
+				L7:	aload_1;
+					invokevirtual 25;		// setIncomingAndReceive()S
+					pop;
+					sspush 255;
+					aload 6;
+					sconst_4;
+					baload;
+					sand;
+					sstore_2;
+					getfield_a_this 4;		// reference protocolapplet/ProtocolApplet.pkey_server
+					aload 6;
+					sconst_5;
+					sload_2;
+					invokeinterface 4 17 7;		// javacard/security/RSAPublicKey
+					goto_w L42;
+				L8:	getfield_a_this 3;		// reference protocolapplet/ProtocolApplet.rsaKeys
+					invokevirtual 29;		// getPublic()Ljavacard/security/PublicKey;
+					checkcast 0 17;		// T_CLASSORINTERFACE javacard/security/RSAPublicKey
+					astore 4;
+					aload 4;
+					aload 6;
+					sconst_0;
+					invokeinterface 3 17 5;		// javacard/security/RSAPublicKey
+					sstore_3;
+					aload_1;
+					sconst_0;
+					sload_3;
+					invokevirtual 28;		// setOutgoingAndSend(SS)V
+					goto_w L42;
+				L9:	aload_1;
+					invokevirtual 25;		// setIncomingAndReceive()S
+					pop;
+					sspush 255;
+					aload 6;
+					sconst_4;
+					baload;
+					sand;
+					sstore_2;
+					sload_2;
+					sspush 128;
+					if_scmpeq L11;
+				L10:	sspush 26368;
+					invokestatic 24;		// javacard/framework/ISOException.throwIt(S)V
+				L11:	aload_0;
+					sload_2;
+					newarray 11;
+					putfield_a 9;		// reference protocolapplet/ProtocolApplet.signature
+					aload 6;
+					sconst_5;
+					getfield_a_this 9;		// reference protocolapplet/ProtocolApplet.signature
+					sconst_0;
+					sload_2;
+					invokestatic 27;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					goto_w L42;
+				L12:	getfield_a_this 9;		// reference protocolapplet/ProtocolApplet.signature
+					sconst_0;
+					aload 6;
+					sconst_0;
+					getfield_a_this 9;		// reference protocolapplet/ProtocolApplet.signature
+					arraylength;
+					invokestatic 27;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					aload_1;
+					sconst_0;
+					getfield_a_this 9;		// reference protocolapplet/ProtocolApplet.signature
+					arraylength;
+					invokevirtual 28;		// setOutgoingAndSend(SS)V
+					goto_w L42;
+				L13:	bspush 10;
+					sconst_0;
+					invokestatic 31;		// javacard/security/Signature.getInstance(BZ)Ljavacard/security/Signature;
+					astore 5;
+					aload 5;
+					getfield_a_this 4;		// reference protocolapplet/ProtocolApplet.pkey_server
+					sconst_2;
+					invokevirtual 32;		// init(Ljavacard/security/Key;B)V
+					getfield_a_this 3;		// reference protocolapplet/ProtocolApplet.rsaKeys
+					invokevirtual 29;		// getPublic()Ljavacard/security/PublicKey;
+					checkcast 0 17;		// T_CLASSORINTERFACE javacard/security/RSAPublicKey
+					astore 4;
+					aload_0;
+					sspush 128;
+					sconst_1;
+					invokestatic 33;		// javacard/framework/JCSystem.makeTransientByteArray(SB)[B
+					putfield_a 10;		// reference protocolapplet/ProtocolApplet.temp
+					aload 4;
+					getfield_a_this 10;		// reference protocolapplet/ProtocolApplet.temp
+					sconst_0;
+					invokeinterface 3 17 5;		// javacard/security/RSAPublicKey
+					sstore_3;
+					aload 5;
+					getfield_a_this 10;		// reference protocolapplet/ProtocolApplet.temp
+					sconst_0;
+					sload_3;
+					invokevirtual 35;		// update([BSS)V
+				L14:	aload 5;
+					getfield_a_this 8;		// reference protocolapplet/ProtocolApplet.id
+					sconst_0;
+					getfield_a_this 8;		// reference protocolapplet/ProtocolApplet.id
+					arraylength;
+					getfield_a_this 9;		// reference protocolapplet/ProtocolApplet.signature
+					sconst_0;
+					getfield_a_this 9;		// reference protocolapplet/ProtocolApplet.signature
+					arraylength;
+					invokevirtual 36;		// verify([BSS[BSS)Z
+					sstore 7;
+					sload 7;
+					ifne_w L42;
+				L15:	sspush 27012;
+					invokestatic 24;		// javacard/framework/ISOException.throwIt(S)V
+				L16:	goto_w L42;
+				L17:	astore 7;
+					sspush 27013;
+					invokestatic 24;		// javacard/framework/ISOException.throwIt(S)V
+					goto_w L42;
+				L18:	getfield_a_this 3;		// reference protocolapplet/ProtocolApplet.rsaKeys
+					invokevirtual 29;		// getPublic()Ljavacard/security/PublicKey;
+					checkcast 0 17;		// T_CLASSORINTERFACE javacard/security/RSAPublicKey
+					astore 4;
+					aload 4;
+					aload 6;
+					sconst_0;
+					invokeinterface 3 17 5;		// javacard/security/RSAPublicKey
+					sstore_3;
+					getfield_a_this 8;		// reference protocolapplet/ProtocolApplet.id
+					sconst_0;
+					aload 6;
+					sspush 128;
+					getfield_a_this 8;		// reference protocolapplet/ProtocolApplet.id
+					arraylength;
+					invokestatic 27;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					aload_1;
+					sconst_0;
+					sload_3;
+					getfield_a_this 8;		// reference protocolapplet/ProtocolApplet.id
+					arraylength;
+					sadd;
+					invokevirtual 28;		// setOutgoingAndSend(SS)V
+					goto_w L42;
+				L19:	aload_1;
+					invokevirtual 25;		// setIncomingAndReceive()S
+					pop;
+					sspush 255;
+					aload 6;
+					sconst_4;
+					baload;
+					sand;
+					sstore_2;
+					aload_0;
+					sload_2;
+					sconst_1;
+					invokestatic 33;		// javacard/framework/JCSystem.makeTransientByteArray(SB)[B
+					putfield_a 10;		// reference protocolapplet/ProtocolApplet.temp
+					aload 6;
+					sconst_5;
+					getfield_a_this 10;		// reference protocolapplet/ProtocolApplet.temp
+					sconst_0;
+					sload_2;
+					invokestatic 27;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					goto_w L42;
+				L20:	aload_1;
+					invokevirtual 25;		// setIncomingAndReceive()S
+					pop;
+					sspush 255;
+					aload 6;
+					sconst_4;
+					baload;
+					sand;
+					sstore_2;
+					bspush 10;
+					sconst_0;
+					invokestatic 31;		// javacard/security/Signature.getInstance(BZ)Ljavacard/security/Signature;
+					astore 5;
+					aload 5;
+					getfield_a_this 4;		// reference protocolapplet/ProtocolApplet.pkey_server
+					sconst_2;
+					invokevirtual 32;		// init(Ljavacard/security/Key;B)V
+				L21:	aload 5;
+					aload 6;
+					sconst_5;
+					sload_2;
+					getfield_a_this 10;		// reference protocolapplet/ProtocolApplet.temp
+					sconst_0;
+					getfield_a_this 10;		// reference protocolapplet/ProtocolApplet.temp
+					arraylength;
+					invokevirtual 36;		// verify([BSS[BSS)Z
+					sstore 7;
+					sload 7;
+					ifne L25;
+				L22:	sspush 27012;
+					invokestatic 24;		// javacard/framework/ISOException.throwIt(S)V
+				L23:	goto L25;
+				L24:	astore 7;
+					sspush 27013;
+					invokestatic 24;		// javacard/framework/ISOException.throwIt(S)V
+				L25:	getfield_a_this 5;		// reference protocolapplet/ProtocolApplet.readerKey
+					aload 6;
+					sconst_5;
+					sspush 128;
+					invokeinterface 4 17 7;		// javacard/security/RSAPublicKey
+					aload_0;
+					sload_2;
+					sspush 128;
+					ssub;
+					sconst_1;
+					invokestatic 33;		// javacard/framework/JCSystem.makeTransientByteArray(SB)[B
+					putfield_a 11;		// reference protocolapplet/ProtocolApplet.forId
+					aload 6;
+					sspush 133;
+					getfield_a_this 11;		// reference protocolapplet/ProtocolApplet.forId
+					sconst_0;
+					sload_2;
+					sspush 128;
+					ssub;
+					invokestatic 27;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					goto_w L42;
+				L26:	aload_0;
+					bspush 8;
+					sconst_1;
+					invokestatic 33;		// javacard/framework/JCSystem.makeTransientByteArray(SB)[B
+					putfield_a 12;		// reference protocolapplet/ProtocolApplet.nc
+					getfield_a_this 0;		// reference protocolapplet/ProtocolApplet.rnd
+					getfield_a_this 12;		// reference protocolapplet/ProtocolApplet.nc
+					sconst_0;
+					getfield_a_this 12;		// reference protocolapplet/ProtocolApplet.nc
+					arraylength;
+					invokevirtual 39;		// generateData([BSS)V
+					aload_0;
+					bspush 16;
+					sconst_1;
+					invokestatic 33;		// javacard/framework/JCSystem.makeTransientByteArray(SB)[B
+					putfield_a 10;		// reference protocolapplet/ProtocolApplet.temp
+					getfield_a_this 12;		// reference protocolapplet/ProtocolApplet.nc
+					sconst_0;
+					getfield_a_this 10;		// reference protocolapplet/ProtocolApplet.temp
+					sconst_0;
+					getfield_a_this 12;		// reference protocolapplet/ProtocolApplet.nc
+					arraylength;
+					invokestatic 27;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					getfield_a_this 8;		// reference protocolapplet/ProtocolApplet.id
+					sconst_0;
+					getfield_a_this 10;		// reference protocolapplet/ProtocolApplet.temp
+					bspush 8;
+					getfield_a_this 8;		// reference protocolapplet/ProtocolApplet.id
+					arraylength;
+					invokestatic 27;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					getfield_a_this 1;		// reference protocolapplet/ProtocolApplet.rsa_cipher
+					getfield_a_this 5;		// reference protocolapplet/ProtocolApplet.readerKey
+					sconst_2;
+					invokevirtual 40;		// init(Ljavacard/security/Key;B)V
+					getfield_a_this 1;		// reference protocolapplet/ProtocolApplet.rsa_cipher
+					getfield_a_this 10;		// reference protocolapplet/ProtocolApplet.temp
+					sconst_0;
+					getfield_a_this 10;		// reference protocolapplet/ProtocolApplet.temp
+					arraylength;
+					aload 6;
+					sconst_0;
+					invokevirtual 41;		// doFinal([BSS[BS)S
+					sstore_3;
+					aload_1;
+					sconst_0;
+					sload_3;
+					invokevirtual 28;		// setOutgoingAndSend(SS)V
+					goto_w L42;
+				L27:	aload_0;
+					bspush 25;
+					sconst_1;
+					invokestatic 33;		// javacard/framework/JCSystem.makeTransientByteArray(SB)[B
+					putfield_a 10;		// reference protocolapplet/ProtocolApplet.temp
+					getfield_a_this 8;		// reference protocolapplet/ProtocolApplet.id
+					sconst_0;
+					getfield_a_this 10;		// reference protocolapplet/ProtocolApplet.temp
+					sconst_0;
+					bspush 8;
+					invokestatic 27;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					getfield_a_this 11;		// reference protocolapplet/ProtocolApplet.forId
+					sconst_0;
+					getfield_a_this 10;		// reference protocolapplet/ProtocolApplet.temp
+					bspush 8;
+					bspush 8;
+					invokestatic 27;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					getfield_a_this 13;		// reference protocolapplet/ProtocolApplet.loc
+					sconst_0;
+					getfield_a_this 10;		// reference protocolapplet/ProtocolApplet.temp
+					bspush 16;
+					sconst_1;
+					invokestatic 27;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					getfield_a_this 12;		// reference protocolapplet/ProtocolApplet.nc
+					sconst_0;
+					getfield_a_this 10;		// reference protocolapplet/ProtocolApplet.temp
+					bspush 17;
+					bspush 8;
+					invokestatic 27;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					getfield_a_this 1;		// reference protocolapplet/ProtocolApplet.rsa_cipher
+					getfield_a_this 4;		// reference protocolapplet/ProtocolApplet.pkey_server
+					sconst_2;
+					invokevirtual 40;		// init(Ljavacard/security/Key;B)V
+					getfield_a_this 1;		// reference protocolapplet/ProtocolApplet.rsa_cipher
+					getfield_a_this 10;		// reference protocolapplet/ProtocolApplet.temp
+					sconst_0;
+					bspush 25;
+					aload 6;
+					sconst_0;
+					invokevirtual 41;		// doFinal([BSS[BS)S
+					sstore_3;
+					aload_1;
+					sconst_0;
+					sload_3;
+					invokevirtual 28;		// setOutgoingAndSend(SS)V
+					goto_w L42;
+				L28:	aload_1;
+					invokevirtual 25;		// setIncomingAndReceive()S
+					pop;
+					sspush 255;
+					aload 6;
+					sconst_4;
+					baload;
+					sand;
+					sstore_2;
+					aload_0;
+					sload_2;
+					sconst_1;
+					invokestatic 33;		// javacard/framework/JCSystem.makeTransientByteArray(SB)[B
+					putfield_a 10;		// reference protocolapplet/ProtocolApplet.temp
+					getfield_a_this 3;		// reference protocolapplet/ProtocolApplet.rsaKeys
+					invokevirtual 43;		// getPrivate()Ljavacard/security/PrivateKey;
+					checkcast 0 26;		// T_CLASSORINTERFACE javacard/security/RSAPrivateKey
+					astore 7;
+					getfield_a_this 1;		// reference protocolapplet/ProtocolApplet.rsa_cipher
+					aload 7;
+					sconst_1;
+					invokevirtual 40;		// init(Ljavacard/security/Key;B)V
+					getfield_a_this 1;		// reference protocolapplet/ProtocolApplet.rsa_cipher
+					aload 6;
+					sconst_5;
+					sload_2;
+					getfield_a_this 10;		// reference protocolapplet/ProtocolApplet.temp
+					sconst_0;
+					invokevirtual 41;		// doFinal([BSS[BS)S
+					sstore_3;
+					getfield_a_this 8;		// reference protocolapplet/ProtocolApplet.id
+					sconst_0;
+					getfield_a_this 10;		// reference protocolapplet/ProtocolApplet.temp
+					bspush 8;
+					getfield_a_this 8;		// reference protocolapplet/ProtocolApplet.id
+					arraylength;
+					invokestatic 44;		// javacard/framework/Util.arrayCompare([BS[BSS)B
+					ifeq L30;
+				L29:	sspush 27012;
+					invokestatic 24;		// javacard/framework/ISOException.throwIt(S)V
+				L30:	getfield_a_this 12;		// reference protocolapplet/ProtocolApplet.nc
+					sconst_0;
+					getfield_a_this 10;		// reference protocolapplet/ProtocolApplet.temp
+					sconst_0;
+					getfield_a_this 12;		// reference protocolapplet/ProtocolApplet.nc
+					arraylength;
+					invokestatic 44;		// javacard/framework/Util.arrayCompare([BS[BSS)B
+					ifeq L32;
+				L31:	sspush 27012;
+					invokestatic 24;		// javacard/framework/ISOException.throwIt(S)V
+				L32:	getfield_a_this 11;		// reference protocolapplet/ProtocolApplet.forId
+					sconst_0;
+					getfield_a_this 10;		// reference protocolapplet/ProtocolApplet.temp
+					bspush 24;
+					getfield_a_this 11;		// reference protocolapplet/ProtocolApplet.forId
+					arraylength;
+					invokestatic 44;		// javacard/framework/Util.arrayCompare([BS[BSS)B
+					ifeq L34;
+				L33:	sspush 27012;
+					invokestatic 24;		// javacard/framework/ISOException.throwIt(S)V
+				L34:	aload_0;
+					bspush 8;
+					sconst_1;
+					invokestatic 33;		// javacard/framework/JCSystem.makeTransientByteArray(SB)[B
+					putfield_a 14;		// reference protocolapplet/ProtocolApplet.nr
+					getfield_a_this 10;		// reference protocolapplet/ProtocolApplet.temp
+					bspush 16;
+					getfield_a_this 14;		// reference protocolapplet/ProtocolApplet.nr
+					sconst_0;
+					bspush 8;
+					invokestatic 27;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					goto_w L42;
+				L35:	aload_0;
+					bspush 32;
+					sconst_1;
+					invokestatic 33;		// javacard/framework/JCSystem.makeTransientByteArray(SB)[B
+					putfield_a 10;		// reference protocolapplet/ProtocolApplet.temp
+					getfield_a_this 0;		// reference protocolapplet/ProtocolApplet.rnd
+					getfield_a_this 10;		// reference protocolapplet/ProtocolApplet.temp
+					sconst_0;
+					bspush 16;
+					invokevirtual 39;		// generateData([BSS)V
+					getfield_a_this 14;		// reference protocolapplet/ProtocolApplet.nr
+					sconst_0;
+					getfield_a_this 10;		// reference protocolapplet/ProtocolApplet.temp
+					bspush 16;
+					getfield_a_this 14;		// reference protocolapplet/ProtocolApplet.nr
+					arraylength;
+					invokestatic 27;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					getfield_a_this 11;		// reference protocolapplet/ProtocolApplet.forId
+					sconst_0;
+					getfield_a_this 10;		// reference protocolapplet/ProtocolApplet.temp
+					bspush 24;
+					getfield_a_this 11;		// reference protocolapplet/ProtocolApplet.forId
+					arraylength;
+					invokestatic 27;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+				L36:	getfield_a_this 1;		// reference protocolapplet/ProtocolApplet.rsa_cipher
+					getfield_a_this 5;		// reference protocolapplet/ProtocolApplet.readerKey
+					sconst_2;
+					invokevirtual 40;		// init(Ljavacard/security/Key;B)V
+					getfield_a_this 1;		// reference protocolapplet/ProtocolApplet.rsa_cipher
+					getfield_a_this 10;		// reference protocolapplet/ProtocolApplet.temp
+					sconst_0;
+					bspush 32;
+					aload 6;
+					sconst_0;
+					invokevirtual 41;		// doFinal([BSS[BS)S
+					sstore_3;
+					aload_1;
+					sconst_0;
+					sload_3;
+					invokevirtual 28;		// setOutgoingAndSend(SS)V
+				L37:	goto L42;
+				L38:	astore 8;
+					sspush 27012;
+					invokestatic 24;		// javacard/framework/ISOException.throwIt(S)V
+					goto L42;
+				L39:	getfield_a_this 6;		// reference protocolapplet/ProtocolApplet.aeskey
+					sconst_0;
+					aload 6;
+					sconst_0;
+					getfield_a_this 6;		// reference protocolapplet/ProtocolApplet.aeskey
+					arraylength;
+					invokestatic 27;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					aload_1;
+					sconst_0;
+					getfield_a_this 6;		// reference protocolapplet/ProtocolApplet.aeskey
+					arraylength;
+					invokevirtual 28;		// setOutgoingAndSend(SS)V
+					goto L42;
+				L40:	aload_1;
+					invokevirtual 25;		// setIncomingAndReceive()S
+					pop;
+					sspush 255;
+					aload 6;
+					sconst_4;
+					baload;
+					sand;
+					sstore_2;
+					aload_0;
+					sload_2;
+					sconst_1;
+					invokestatic 33;		// javacard/framework/JCSystem.makeTransientByteArray(SB)[B
+					putfield_a 13;		// reference protocolapplet/ProtocolApplet.loc
+					aload 6;
+					sconst_5;
+					getfield_a_this 13;		// reference protocolapplet/ProtocolApplet.loc
+					sconst_0;
+					sload_2;
+					invokestatic 27;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					goto L42;
+				L41:	sspush 27904;
+					invokestatic 24;		// javacard/framework/ISOException.throwIt(S)V
+				L42:	return;
+			.exceptionTable {
+				// start_block end_block handler_block catch_type_index
+				L14 L16 L17 21;
+				L21 L23 L24 21;
+				L36 L37 L38 21;
+			}
+		}
+
+	}
+
+}

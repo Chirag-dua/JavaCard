@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">EPurse</string>
+    <string name="display_button">Show Balance</string>
+    <string name="add_button">Add Amount</string>
+    <string name="subtract_button">Subtract Amount</string>
+    <string name="amount_box">Enter amount here</string>
+    <string name="action_select_device">Select Device</string>
+    <string name="title_activity_display_message">Result</string>
+    <string name="hello_world">Hello world!</string>
+
+</resources>

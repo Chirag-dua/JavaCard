@@ -1,0 +1,514 @@
+// converted by version 1.3
+// on Wed Feb 10 01:35:42 IST 2016
+
+.package eappsk {
+	.aid 0x1:0x2:0x3:0x4:0x5:0x6:0x7:0x8:0x9:0x5;
+	.version 1.0;
+
+	.imports {
+		0xA0:0x0:0x0:0x0:0x62:0x1:0x1 1.3;		//javacard/framework
+		0xA0:0x0:0x0:0x0:0x62:0x1:0x2 1.3;		//javacard/security
+		0xA0:0x0:0x0:0x0:0x62:0x0:0x1 1.0;		//java/lang
+	}
+
+	.applet {
+		0x1:0x2:0x3:0x4:0x5:0x6:0x7:0x8:0x9:0x5:0x2 Card;
+	}
+
+	.constantPool {
+		// 0
+		instanceFieldRef byte[] Card/ids;
+		// 1
+		instanceFieldRef 1.14 Card/rnd;
+		// 2
+		instanceFieldRef 1.20 Card/key;
+		// 3
+		instanceFieldRef 1.15 Card/sig;
+		// 4
+		instanceFieldRef byte[] Card/aeskey;
+		// 5
+		instanceFieldRef byte[] Card/rands;
+		// 6
+		instanceFieldRef byte[] Card/randp;
+		// 7
+		instanceFieldRef byte[] Card/idp;
+		// 8
+		staticMethodRef 0.3.0()V;		// javacard/framework/Applet.<init>()V
+		// 9
+		staticMethodRef 1.13.0(BSZ)Ljavacard/security/Key;;		// javacard/security/KeyBuilder.buildKey(BSZ)Ljavacard/security/Key;
+			.descriptor	Ljavacard/security/Key;	1.0;
+
+		// 10
+		virtualMethodRef 0.3.1()V;		// register()V
+		// 11
+		classRef Card;
+		// 12
+		staticMethodRef Card/<init>()V;
+		// 13
+		virtualMethodRef 0.3.3()Z;		// selectingApplet()Z
+		// 14
+		virtualMethodRef 0.10.1()[B;		// getBuffer()[B
+		// 15
+		staticMethodRef 0.7.1(S)V;		// javacard/framework/ISOException.throwIt(S)V
+		// 16
+		staticMethodRef 0.8.13(SB)[B;		// javacard/framework/JCSystem.makeTransientByteArray(SB)[B
+		// 17
+		classRef 1.20;		// javacard/security/AESKey
+		// 18
+		virtualMethodRef 1.14.1([BSS)V;		// generateData([BSS)V
+		// 19
+		staticMethodRef 0.16.1([BS[BSS)S;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+		// 20
+		virtualMethodRef 0.10.8(SS)V;		// setOutgoingAndSend(SS)V
+		// 21
+		virtualMethodRef 0.10.6()S;		// setIncomingAndReceive()S
+		// 22
+		staticMethodRef 1.14.0(B)Ljavacard/security/RandomData;;		// javacard/security/RandomData.getInstance(B)Ljavacard/security/RandomData;
+			.descriptor	Ljavacard/security/RandomData;	1.14;
+
+		// 23
+		staticMethodRef 1.15.0(BZ)Ljavacard/security/Signature;;		// javacard/security/Signature.getInstance(BZ)Ljavacard/security/Signature;
+			.descriptor	Ljavacard/security/Signature;	1.15;
+
+		// 24
+		virtualMethodRef 1.15.3(Ljavacard/security/Key;B)V;		// init(Ljavacard/security/Key;B)V
+			.descriptor	Ljavacard/security/Key;	1.0;
+
+		// 25
+		virtualMethodRef 1.15.6([BSS)V;		// update([BSS)V
+		// 26
+		virtualMethodRef 1.15.7([BSS[BSS)Z;		// verify([BSS[BSS)Z
+		// 27
+		virtualMethodRef 1.15.5([BSS[BS)S;		// sign([BSS[BS)S
+	}
+
+	.class public Card 0 extends 0.3 {		// extends javacard/framework/Applet
+
+		.fields {
+			private byte[] ids 0;		// [B
+			private byte[] idp 1;		// [B
+			private 1.20 key 2;		// Ljavacard/security/AESKey;
+			private 1.14 rnd 3;		// Ljavacard/security/RandomData;
+			private 1.15 sig 4;		// Ljavacard/security/Signature;
+			private byte[] randp 5;		// [B
+			private byte[] rands 6;		// [B
+			private byte[] aeskey 7;		// [B
+			public static final byte APP_CLA = -128;		// B
+			public static final byte STEP_ONE = 48;		// B
+			public static final byte STEP_TWO = 49;		// B
+			public static final byte STEP_THREE = 50;		// B
+			public static final byte GET_AES_KEY = -48;		// B
+			public static final byte RESET = -46;		// B
+		}
+
+		.publicMethodTable 7 {
+			equals(Ljava/lang/Object;)Z;
+			register()V;
+			register([BSB)V;
+			selectingApplet()Z;
+			deselect()V;
+			getShareableInterfaceObject(Ljavacard/framework/AID;B)Ljavacard/framework/Shareable;;
+			select()Z;
+			process(Ljavacard/framework/APDU;)V;
+		}
+
+		.packageMethodTable 0 {
+		}
+
+		.method private <init>()V {
+			.stack 5;
+			.locals 1;
+
+				L0:	aload_0;
+					invokespecial 8;		// javacard/framework/Applet.<init>()V
+					aload_0;
+					bspush 8;
+					newarray 11;
+					dup;
+					sconst_1;
+					sconst_1;
+					bastore;
+					dup;
+					sconst_2;
+					sconst_2;
+					bastore;
+					dup;
+					sconst_3;
+					sconst_3;
+					bastore;
+					dup;
+					sconst_4;
+					sconst_4;
+					bastore;
+					dup;
+					sconst_5;
+					sconst_5;
+					bastore;
+					dup;
+					bspush 6;
+					bspush 6;
+					bastore;
+					dup;
+					bspush 7;
+					bspush 7;
+					bastore;
+					putfield_a 0;		// reference eappsk/Card.ids
+					aload_0;
+					sconst_2;
+					invokestatic 22;		// javacard/security/RandomData.getInstance(B)Ljavacard/security/RandomData;
+					putfield_a 1;		// reference eappsk/Card.rnd
+					aload_0;
+					bspush 15;
+					sspush 128;
+					sconst_0;
+					invokestatic 9;		// javacard/security/KeyBuilder.buildKey(BSZ)Ljavacard/security/Key;
+					checkcast 0 17;		// T_CLASSORINTERFACE javacard/security/AESKey
+					putfield_a 2;		// reference eappsk/Card.key
+					bspush 16;
+					newarray 11;
+					dup;
+					sconst_1;
+					sconst_1;
+					bastore;
+					dup;
+					sconst_2;
+					sconst_2;
+					bastore;
+					dup;
+					sconst_3;
+					sconst_3;
+					bastore;
+					dup;
+					sconst_4;
+					sconst_4;
+					bastore;
+					dup;
+					sconst_5;
+					sconst_5;
+					bastore;
+					dup;
+					bspush 6;
+					bspush 6;
+					bastore;
+					dup;
+					bspush 7;
+					bspush 7;
+					bastore;
+					dup;
+					bspush 8;
+					bspush 8;
+					bastore;
+					dup;
+					bspush 9;
+					bspush 9;
+					bastore;
+					dup;
+					bspush 10;
+					bspush 10;
+					bastore;
+					dup;
+					bspush 11;
+					bspush 11;
+					bastore;
+					dup;
+					bspush 12;
+					bspush 12;
+					bastore;
+					dup;
+					bspush 13;
+					bspush 13;
+					bastore;
+					dup;
+					bspush 14;
+					bspush 14;
+					bastore;
+					dup;
+					bspush 15;
+					bspush 15;
+					bastore;
+					astore_1;
+					getfield_a_this 2;		// reference eappsk/Card.key
+					aload_1;
+					sconst_0;
+					invokeinterface 3 17 4;		// javacard/security/AESKey
+					aload_0;
+					bspush 18;
+					sconst_0;
+					invokestatic 23;		// javacard/security/Signature.getInstance(BZ)Ljavacard/security/Signature;
+					putfield_a 3;		// reference eappsk/Card.sig
+					aload_0;
+					bspush 16;
+					newarray 11;
+					dup;
+					sconst_1;
+					sconst_1;
+					bastore;
+					dup;
+					sconst_2;
+					sconst_2;
+					bastore;
+					dup;
+					sconst_3;
+					sconst_3;
+					bastore;
+					dup;
+					sconst_4;
+					sconst_4;
+					bastore;
+					dup;
+					sconst_5;
+					sconst_5;
+					bastore;
+					dup;
+					bspush 6;
+					bspush 6;
+					bastore;
+					dup;
+					bspush 7;
+					bspush 7;
+					bastore;
+					dup;
+					bspush 8;
+					bspush 8;
+					bastore;
+					dup;
+					bspush 9;
+					bspush 9;
+					bastore;
+					dup;
+					bspush 10;
+					bspush 10;
+					bastore;
+					dup;
+					bspush 11;
+					bspush 11;
+					bastore;
+					dup;
+					bspush 12;
+					bspush 12;
+					bastore;
+					dup;
+					bspush 13;
+					bspush 13;
+					bastore;
+					dup;
+					bspush 14;
+					bspush 14;
+					bastore;
+					dup;
+					bspush 15;
+					bspush 15;
+					bastore;
+					putfield_a 4;		// reference eappsk/Card.aeskey
+					aload_0;
+					invokevirtual 10;		// register()V
+					return;
+		}
+
+		.method public static install([BSB)V 0 {
+			.stack 1;
+			.locals 0;
+
+				L0:	new 11;		// eappsk/Card
+					invokespecial 12;		// eappsk/Card.<init>()V
+					return;
+		}
+
+		.method public process(Ljavacard/framework/APDU;)V 7 {
+			.stack 7;
+			.locals 4;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	aload_0;
+					invokevirtual 13;		// selectingApplet()Z
+					ifeq L2;
+				L1:	return;
+				L2:	aload_1;
+					invokevirtual 14;		// getBuffer()[B
+					astore 5;
+					aload 5;
+					sconst_0;
+					baload;
+					bspush -128;
+					if_scmpeq L4;
+				L3:	sspush 28160;
+					invokestatic 15;		// javacard/framework/ISOException.throwIt(S)V
+				L4:	aload 5;
+					sconst_1;
+					baload;
+					slookupswitch L11 5 -48 L9 -46 L10 48 L5 49 L6 50 L8;
+				L5:	aload_0;
+					bspush 8;
+					sconst_1;
+					invokestatic 16;		// javacard/framework/JCSystem.makeTransientByteArray(SB)[B
+					putfield_a 5;		// reference eappsk/Card.rands
+					getfield_a_this 1;		// reference eappsk/Card.rnd
+					getfield_a_this 5;		// reference eappsk/Card.rands
+					sconst_0;
+					getfield_a_this 5;		// reference eappsk/Card.rands
+					arraylength;
+					invokevirtual 18;		// generateData([BSS)V
+					getfield_a_this 5;		// reference eappsk/Card.rands
+					sconst_0;
+					aload 5;
+					sconst_0;
+					getfield_a_this 5;		// reference eappsk/Card.rands
+					arraylength;
+					invokestatic 19;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					getfield_a_this 0;		// reference eappsk/Card.ids
+					sconst_0;
+					aload 5;
+					getfield_a_this 5;		// reference eappsk/Card.rands
+					arraylength;
+					getfield_a_this 0;		// reference eappsk/Card.ids
+					arraylength;
+					invokestatic 19;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					aload_1;
+					sconst_0;
+					getfield_a_this 5;		// reference eappsk/Card.rands
+					arraylength;
+					getfield_a_this 0;		// reference eappsk/Card.ids
+					arraylength;
+					sadd;
+					invokevirtual 20;		// setOutgoingAndSend(SS)V
+					goto_w L12;
+				L6:	aload_1;
+					invokevirtual 21;		// setIncomingAndReceive()S
+					sstore_3;
+					aload_0;
+					bspush 8;
+					sconst_1;
+					invokestatic 16;		// javacard/framework/JCSystem.makeTransientByteArray(SB)[B
+					putfield_a 6;		// reference eappsk/Card.randp
+					aload_0;
+					bspush 8;
+					sconst_1;
+					invokestatic 16;		// javacard/framework/JCSystem.makeTransientByteArray(SB)[B
+					putfield_a 7;		// reference eappsk/Card.idp
+					aload 5;
+					bspush 13;
+					getfield_a_this 6;		// reference eappsk/Card.randp
+					sconst_0;
+					getfield_a_this 6;		// reference eappsk/Card.randp
+					arraylength;
+					invokestatic 19;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					aload 5;
+					bspush 37;
+					getfield_a_this 7;		// reference eappsk/Card.idp
+					sconst_0;
+					getfield_a_this 7;		// reference eappsk/Card.idp
+					arraylength;
+					invokestatic 19;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					getfield_a_this 3;		// reference eappsk/Card.sig
+					getfield_a_this 2;		// reference eappsk/Card.key
+					sconst_2;
+					invokevirtual 24;		// init(Ljavacard/security/Key;B)V
+					getfield_a_this 3;		// reference eappsk/Card.sig
+					getfield_a_this 7;		// reference eappsk/Card.idp
+					sconst_0;
+					getfield_a_this 7;		// reference eappsk/Card.idp
+					arraylength;
+					invokevirtual 25;		// update([BSS)V
+					getfield_a_this 3;		// reference eappsk/Card.sig
+					getfield_a_this 0;		// reference eappsk/Card.ids
+					sconst_0;
+					getfield_a_this 0;		// reference eappsk/Card.ids
+					arraylength;
+					invokevirtual 25;		// update([BSS)V
+					getfield_a_this 3;		// reference eappsk/Card.sig
+					getfield_a_this 5;		// reference eappsk/Card.rands
+					sconst_0;
+					getfield_a_this 5;		// reference eappsk/Card.rands
+					arraylength;
+					invokevirtual 25;		// update([BSS)V
+					getfield_a_this 3;		// reference eappsk/Card.sig
+					getfield_a_this 6;		// reference eappsk/Card.randp
+					sconst_0;
+					getfield_a_this 6;		// reference eappsk/Card.randp
+					arraylength;
+					aload 5;
+					bspush 21;
+					bspush 16;
+					invokevirtual 26;		// verify([BSS[BSS)Z
+					ifne_w L12;
+				L7:	sspush 27012;
+					invokestatic 15;		// javacard/framework/ISOException.throwIt(S)V
+					goto_w L12;
+				L8:	getfield_a_this 5;		// reference eappsk/Card.rands
+					sconst_0;
+					aload 5;
+					sconst_0;
+					getfield_a_this 5;		// reference eappsk/Card.rands
+					arraylength;
+					invokestatic 19;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					aload_0;
+					bspush 18;
+					sconst_0;
+					invokestatic 23;		// javacard/security/Signature.getInstance(BZ)Ljavacard/security/Signature;
+					putfield_a 3;		// reference eappsk/Card.sig
+					getfield_a_this 3;		// reference eappsk/Card.sig
+					getfield_a_this 2;		// reference eappsk/Card.key
+					sconst_1;
+					invokevirtual 24;		// init(Ljavacard/security/Key;B)V
+					getfield_a_this 3;		// reference eappsk/Card.sig
+					getfield_a_this 0;		// reference eappsk/Card.ids
+					sconst_0;
+					getfield_a_this 0;		// reference eappsk/Card.ids
+					arraylength;
+					invokevirtual 25;		// update([BSS)V
+					getfield_a_this 3;		// reference eappsk/Card.sig
+					getfield_a_this 6;		// reference eappsk/Card.randp
+					sconst_0;
+					getfield_a_this 6;		// reference eappsk/Card.randp
+					arraylength;
+					aload 5;
+					bspush 8;
+					invokevirtual 27;		// sign([BSS[BS)S
+					sstore 4;
+					aload_1;
+					sconst_0;
+					bspush 8;
+					sload 4;
+					sadd;
+					invokevirtual 20;		// setOutgoingAndSend(SS)V
+					goto L12;
+				L9:	getfield_a_this 4;		// reference eappsk/Card.aeskey
+					sconst_0;
+					aload 5;
+					sconst_0;
+					getfield_a_this 4;		// reference eappsk/Card.aeskey
+					arraylength;
+					invokestatic 19;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					aload_1;
+					sconst_0;
+					getfield_a_this 4;		// reference eappsk/Card.aeskey
+					arraylength;
+					invokevirtual 20;		// setOutgoingAndSend(SS)V
+					goto L12;
+				L10:	aload_0;
+					aconst_null;
+					putfield_a 5;		// reference eappsk/Card.rands
+					aload_0;
+					aconst_null;
+					putfield_a 6;		// reference eappsk/Card.randp
+					aload_0;
+					bspush 18;
+					sconst_0;
+					invokestatic 23;		// javacard/security/Signature.getInstance(BZ)Ljavacard/security/Signature;
+					putfield_a 3;		// reference eappsk/Card.sig
+					goto L12;
+				L11:	sspush 27904;
+					invokestatic 15;		// javacard/framework/ISOException.throwIt(S)V
+				L12:	return;
+		}
+
+	}
+
+}
